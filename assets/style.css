@@ -2,6 +2,22 @@
     ESTILIZAÇÃO DO TABULEIRO
     Kaio
 */
+.container {
+    display: flex;
+    flex-direction: row
+
+}
+.coluna {
+    background-color: black;
+    display: flex;
+    flex-flow: column wrap;
+}
+.celula {
+width: 30px;
+height: 30px;
+background-color: blue;
+border: 1px solid black ;
+}
 
 /* 
     ESTILIZAÇÃO DOS DISCOS

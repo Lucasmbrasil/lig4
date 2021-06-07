@@ -1,19 +1,44 @@
 // Criar o tabuleiro 7x6 com array 2d
-const tabuleiro = 
-    // Kaio
+// Kaio
 // Criar o tabuleiro html
-// for (let i = 0; i < map.length; i++) {
-//     let coluna = document.createElement('div')
-//     for (let j = 0; j < map[i].length; j++) {
-//         let celula = document.createElement('div')
-        // celula.setAttribute('data-coord', `${i}${j}`)
+let board = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+]
+//colocando o tabuleiro no html
+let container = document.createElement("div")
+container.classList.add("container")
+document.body.appendChild(container)
+
+const tabuleiro = () =>{
+    for (let col = 1; col <= board[0].length; col++) {
+        let coluna = document.createElement("div")
+        coluna.classList.add("coluna")
+        
+        for (let row = 1; row <= board.length; row++) {
+            let celula = document.createElement("div")
+            celula.classList.add("celula")
+            celula.dataset.columnNumber = col
+            celula.dataset.rowNumber = row
+            console.log("row:", row)
+            console.log("column:" ,col)
+            coluna.appendChild(celula)
+        }
+        container.appendChild(coluna)
+    }
+}
+tabuleiro()
 
     // Kaio
 // Criar 1 variável pra cada jogador
-let jogador1 =
-let jogador2 =
+// let jogador1 =
+// let jogador2 =
 // Criar 1 variável pra guardar o jogador da vez
-let jogadorAtual =
+// let jogadorAtual =
 // Criar a função pra posicionar o disco 
 function posicionarDisco(){
 // receber o jogadorAtual e no final da função fazer a mudança do jogadorAtual e já chama a função de verificação
