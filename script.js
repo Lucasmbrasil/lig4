@@ -15,11 +15,11 @@ container.classList.add("container")
 document.body.appendChild(container)
 
 const tabuleiro = () =>{
-    for (let col = 1; col <= board[0].length; col++) {
+    for (let col = 0; col < board[0].length; col++) {
         let coluna = document.createElement("div")
         coluna.classList.add("coluna")
         
-        for (let row = 1; row <= board.length; row++) {
+        for (let row = 0; row < board.length; row++) {
             let celula = document.createElement("div")
             celula.classList.add("celula")
             celula.dataset.columnNumber = col
