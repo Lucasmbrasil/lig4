@@ -47,7 +47,59 @@ function posicionarDisco(){
 }
 
 // Criar a função de verificação de vitória
-function verificar(){}
+const verificaVitoria = (board) => {
+
+    const limiteX = board[0].length - 4;
+    const limiteY = board.length - 4;
+
+    let msgDeVitoria = document.querySelector('#msgDeVitoria')
+    msgDeVitoria.innerHTML = '';
+
+    // checagem horizontal
+    for (let row = 0; row < board.length; row++) {
+        
+        for (let col = 0; col < limiteX; col++) {
+            let cell = board[row][col];
+
+            if (cell !== 0) {
+                let horizontalChecker = 0;
+
+                for (let count = 0; count < 4; count++) {
+                    if (cell === board[row][col + count]) {
+                        horizontalChecker++;
+                    }
+                    if (horizontalChecker === 3) {
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência horizontal na linha ${row}!`
+                    }
+                }
+            }
+        }
+    }
+
+    //checagem vertical
+    for (let row = 0; row < limiteY; row++) {
+
+        for (let col = 0; col < board[0].length; col++) {
+            cell = board[row][col];
+
+            if (cell !== 0) {
+                let verticalChecker = 0;
+
+                for (let count = 0; count < 4; count++) {
+                    if (cell === board[row + count][col]) {
+                        verticalChecker++;
+                    }
+                    if (verticalChecker === 3) {
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência vertical na coluna ${col}`
+                    }
+                }
+            }
+        }
+    }
+
+    //checagem diagonal (direita-abaixo)
+}
+verificaVitoria(board);
     // Eduardo
 // Criar a função de verificação de empate
 function verificarEmpate(){}
