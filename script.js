@@ -191,7 +191,7 @@ function verificarEmpate() { }
 
 const resetGame = () => {
 
-    // addListener();
+    addListener();
 
     for (let col = 0; col < board[0].length; col++) {
 
