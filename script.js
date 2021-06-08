@@ -35,22 +35,20 @@ const table = () => {
 table()
 
 // Kaio
-// Criar 1 variável pra cada jogador
-//let jogador1 = 1;
-//let jogador2 = 2;
+
+//Osmar
 // Criar 1 variável pra guardar o jogador da vez
 let jogadorAtual = "black"; //black ou red
 // Criar a função pra posicionar o disco 
 // receber o jogadorAtual e no final da função fazer a mudança do jogadorAtual e já chama a função de verificação
 // Criar um handler de clique para cada coluna 
-// Osmar
-//let jogadas = 0;
+
 const posicionarDisco = (event) => {
-    //console.log(event);
     const cell = event.target;
     let col = cell.dataset["columnNumber"];
     if (typeof col === 'undefined')
         col = cell.parentElement.dataset["columnNumber"];
+    let flag = false;
     //criar disco
     let disc = document.createElement("div");
     disc.classList.add("discos");
@@ -65,18 +63,23 @@ const posicionarDisco = (event) => {
             } else {
                 board[i][col] = 2;
             }
+            flag = true;
             break;
         }
     }
     if (verificaVitoria(board) || verificarEmpate(board))
         removeListener();
-    jogadorAtual = trocaJogador(jogadorAtual);
+    if (flag === true){
+        jogadorAtual = trocaJogador(jogadorAtual);
+        flag = false;
+    }
 }
 
 const trocaJogador = (player) => {
-    if (player === "black")
-        return "red"
-    return "black"
+    if (player === "black"){
+        return "red"}
+        if (player === "red"){
+            return "black"}
 }
 
 // adicionando evento ao tabuleiro
