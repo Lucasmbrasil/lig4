@@ -138,9 +138,9 @@ const verificaVitoria = (board) => {
     }
 
     //checagem diagonal (direita-abaixo)
-    for (let row = 0; row < limiteY; row++) {
+    for (let row = 0; row <= limiteY; row++) {
 
-        for (let col = 0; col < limiteX; col++) {
+        for (let col = 0; col <= limiteX; col++) {
             cell = board[row][col];
 
             if (cell !== 0) {
@@ -182,7 +182,7 @@ const verificaVitoria = (board) => {
     }
     return false;
 }
-verificaVitoria(board);
+
 // Eduardo
 // Criar a função de verificação de empate
 function verificarEmpate() { }
