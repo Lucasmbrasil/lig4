@@ -99,9 +99,9 @@ const verificaVitoria = (board) => {
     }
 
     //checagem diagonal (direita-abaixo)
-    for (let row = 0; row < limiteY; row++) {
+    for (let row = 0; row <= limiteY; row++) {
 
-        for (let col = 0; col < limiteX; col++) {
+        for (let col = 0; col <= limiteX; col++) {
             cell = board[row][col];
 
             if (cell !== 0) {
@@ -119,7 +119,7 @@ const verificaVitoria = (board) => {
         }
     }
     // checagem diagonal (esquerda-abaixo)
-    for (let row = 0; row < limiteY ; row++) {
+    for (let row = 0; row <= limiteY ; row++) {
 
         for (let col = limiteX; col < board[0].length; col++) {
             cell = board[row][col];
