@@ -86,8 +86,8 @@ for (let i = 0; i < colunas.length; i++) {
 // Criar a função de verificação de vitória
 const verificaVitoria = (board) => {
 
-    const limiteX = board[0].length - 4;
-    const limiteY = board.length - 4;
+    const limiteX = board[0].length - 3;
+    const limiteY = board.length - 3;
 
     let msgDeVitoria = document.querySelector('#msgDeVitoria')
     msgDeVitoria.innerHTML = '';
@@ -182,8 +182,7 @@ const verificaVitoria = (board) => {
     }
     return false;
 }
-
-// Eduardo
+    // Eduardo
 // Criar a função de verificação de empate
 function verificarEmpate() { }
     // Lucas
