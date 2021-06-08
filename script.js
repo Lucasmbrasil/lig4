@@ -188,3 +188,23 @@ const verificaVitoria = (board) => {
 function verificarEmpate() { }
     // Lucas
 // Criar uma função pra verificar a quantidade de elementos na coluna, quando todas estiverem completas, deu empate
+
+const resetGame = () => {
+
+    // addListener();
+
+    for (let col = 0; col < board[0].length; col++) {
+
+        for (let row = 0; row < board.length; row++) {
+
+            let currentCell = document.querySelector(`[data-coord="${col}${row}"]`);
+            currentCell.innerHTML = '';
+
+            board[row][col] = 0;
+
+        }
+    }
+
+}
+const resetButton = document.querySelector('#resetBtn');
+resetButton.addEventListener('click', resetGame);
