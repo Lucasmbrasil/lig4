@@ -139,7 +139,6 @@ const verificaVitoria = (board) => {
         }
     }
 }
-verificaVitoria(board);
     // Eduardo
 // Criar a função de verificação de empate
 function verificarEmpate(){}
