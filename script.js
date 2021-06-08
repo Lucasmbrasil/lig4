@@ -10,9 +10,9 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0],
 ]
 //colocando o tabuleiro no html
-let container = document.createElement("div")
-container.classList.add("container")
-document.body.appendChild(container)
+
+let tabuleiro = document.getElementById(tabuleiro)
+tabuleiro.classList.add("tabuleiro")
 
 const tabuleiro = () =>{
     for (let col = 0; col < board[0].length; col++) {
@@ -24,11 +24,12 @@ const tabuleiro = () =>{
             celula.classList.add("celula")
             celula.dataset.columnNumber = col
             celula.dataset.rowNumber = row
+            celula.dataset.coord = `${col}${row}`
             console.log("row:", row)
             console.log("column:" ,col)
             coluna.appendChild(celula)
         }
-        container.appendChild(coluna)
+        tabuleiro.appendChild(coluna)
     }
 }
 tabuleiro()
@@ -64,7 +65,7 @@ const verificaVitoria = (board) => {
             if (cell !== 0) {
                 let horizontalChecker = 0;
 
-                for (let count = 0; count < 4; count++) {
+                for (let count = 1; count < 4; count++) {
                     if (cell === board[row][col + count]) {
                         horizontalChecker++;
                     }
@@ -85,7 +86,7 @@ const verificaVitoria = (board) => {
             if (cell !== 0) {
                 let verticalChecker = 0;
 
-                for (let count = 0; count < 4; count++) {
+                for (let count = 1; count < 4; count++) {
                     if (cell === board[row + count][col]) {
                         verticalChecker++;
                     }
@@ -98,6 +99,45 @@ const verificaVitoria = (board) => {
     }
 
     //checagem diagonal (direita-abaixo)
+    for (let row = 0; row < limiteY; row++) {
+
+        for (let col = 0; col < limiteX; col++) {
+            cell = board[row][col];
+
+            if (cell !== 0) {
+                let diagonalChecker = 0;
+
+                for (let count = 1; count < 4; count++) {
+                    if (cell === board[row + count][col + count]) {
+                        diagonalChecker++;
+                    }
+                    if (diagonalChecker === 3) {
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal na coluna ${col}`
+                    }
+                }
+            }
+        }
+    }
+    // checagem diagonal (esquerda-abaixo)
+    for (let row = 0; row < limiteY ; row++) {
+
+        for (let col = limiteX; col < board[0].length; col++) {
+            cell = board[row][col];
+
+            if (cell !== 0) {
+                let diagonalChecker = 0;
+
+                for (let count = 1; count < 4; count++) {
+                    if (cell === board[row + count][col - count]) {
+                        diagonalChecker++;
+                    }
+                    if (diagonalChecker === 3) {
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal na coluna ${col}`
+                    }
+                }
+            }
+        }
+    }
 }
 verificaVitoria(board);
     // Eduardo
