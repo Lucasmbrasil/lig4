@@ -64,10 +64,9 @@ const posicionarDisco = (event) => {
                 board[i][col] = 2;
             }
             break;
-            console.log(board[i][col]);
         }
-
     }
+    verificaVitoria(board);
     jogadorAtual = trocaJogador(jogadorAtual);
 }
 
