@@ -54,7 +54,7 @@ const posicionarDisco = (event) => {
     disc.classList.add("discos");
     disc.classList.add(jogadorAtual);
 
- //   jogadas++;
+    //   jogadas++;
     for (let i = board.length - 1; i >= 0; i--) {
         if (board[i][col] === 0) {
             document.querySelector(`[data-coord="${col}${i}"]`).appendChild(disc);
@@ -66,7 +66,8 @@ const posicionarDisco = (event) => {
             break;
         }
     }
-    verificaVitoria(board);
+    if(verificaVitoria(board))
+        removeListener();
     jogadorAtual = trocaJogador(jogadorAtual);
 }
 
@@ -77,11 +78,20 @@ const trocaJogador = (player) => {
 }
 
 // adicionando evento ao tabuleiro
-const colunas = document.getElementsByClassName("coluna");
-for (let i = 0; i < colunas.length; i++) {
-    colunas[i].addEventListener('click', posicionarDisco);
+const addListener = (player) => {
+    const colunas = document.getElementsByClassName("coluna");
+    for (let i = 0; i < colunas.length; i++) {
+        colunas[i].addEventListener('click', posicionarDisco);
+    }
 }
+addListener();
 
+const removeListener = (player) => {
+    const colunas = document.getElementsByClassName("coluna");
+    for (let i = 0; i < colunas.length; i++) {
+        colunas[i].removeEventListener('click', posicionarDisco);
+    }
+}
 
 // Criar a função de verificação de vitória
 const verificaVitoria = (board) => {
@@ -182,7 +192,7 @@ const verificaVitoria = (board) => {
     }
     return false;
 }
-    // Eduardo
+// Eduardo
 // Criar a função de verificação de empate
 function verificarEmpate() { }
     // Lucas
