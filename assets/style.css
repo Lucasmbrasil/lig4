@@ -2,30 +2,53 @@
     ESTILIZAÇÃO DO TABULEIRO
     Kaio
 */
+body {
+    background-color: #e5e4cc;
+    font-family: 'Luckiest Guy', cursive;
+}
+h1, h2,#msgDeVitoria {
+    text-align: center;
+    margin: 20px;
+}
+h1 {
+    font-size: xx-large;
+}
+#msgDeVitoria {
+    font-size: x-large;
+}
+#container {
+    background-color: #889e81;
+    height: 310px;
+    width: 375px;
+    margin: 30px auto;
+    border-radius: 10px;
+}
 .tabuleiro {
-    display       : flex;
-    flex-direction: row
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5px;
 }
 
 .coluna {
-    background-color: black;
+    /* background-color: black; */
     display         : flex;
     flex-flow       : column wrap;
 }
 
 .celula {
-    width           : 30px;
-    height          : 30px;
-    background-color: blue;
-    border          : 1px solid black;
-}
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #bac7a7;
+    }
 
 /* 
     ESTILIZAÇÃO DOS DISCOS
 */
 .discos {
-    width : 30px;
-    height: 30px;
+    width : 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: grey;
 }
@@ -39,3 +62,18 @@
 /* 
     ESTILIZAÇÃO DE RESULTADO
 */
+
+#resetBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #a4d4ae;
+    font-size: 17px;
+}
+
+
+@media (min-width: 800px) {
+    
+}
