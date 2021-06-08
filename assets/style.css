@@ -2,7 +2,7 @@
     ESTILIZAÇÃO DO TABULEIRO
     Kaio
 */
-.container {
+.tabuleiro {
     display: flex;
     flex-direction: row
 

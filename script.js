@@ -11,10 +11,10 @@ let board = [
 ]
 //colocando o tabuleiro no html
 
-let tabuleiro = document.getElementById(tabuleiro)
+let tabuleiro = document.getElementById("tabuleiro")
 tabuleiro.classList.add("tabuleiro")
 
-const tabuleiro = () =>{
+const table = () =>{
     for (let col = 0; col < board[0].length; col++) {
         let coluna = document.createElement("div")
         coluna.classList.add("coluna")
@@ -32,7 +32,7 @@ const tabuleiro = () =>{
         tabuleiro.appendChild(coluna)
     }
 }
-tabuleiro()
+table()
 
     // Kaio
 // Criar 1 variável pra cada jogador
