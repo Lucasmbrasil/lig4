@@ -48,7 +48,9 @@ let jogadorAtual = "black"; //black ou red
 const posicionarDisco = (event) => {
     //console.log(event);
     const cell = event.target;
-    const col = cell.dataset["columnNumber"];
+    let col = cell.dataset["columnNumber"];
+    if (typeof col === 'undefined')
+        col = cell.parentElement.dataset["columnNumber"];
     //criar disco
     let disc = document.createElement("div");
     disc.classList.add("discos");
