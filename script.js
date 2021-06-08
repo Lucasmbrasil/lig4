@@ -66,7 +66,7 @@ const posicionarDisco = (event) => {
             break;
         }
     }
-    if(verificaVitoria(board))
+    if (verificaVitoria(board) || verificarEmpate(board))
         removeListener();
     jogadorAtual = trocaJogador(jogadorAtual);
 }
@@ -148,9 +148,9 @@ const verificaVitoria = (board) => {
     }
 
     //checagem diagonal (direita-abaixo)
-    for (let row = 0; row <= limiteY; row++) {
+    for (let row = 0; row < limiteY; row++) {
 
-        for (let col = 0; col <= limiteX; col++) {
+        for (let col = 0; col < limiteX; col++) {
             cell = board[row][col];
 
             if (cell !== 0) {
@@ -194,8 +194,18 @@ const verificaVitoria = (board) => {
 }
 // Eduardo
 // Criar a função de verificação de empate
-function verificarEmpate() { }
-    // Lucas
+const verificarEmpate = (board) => {
+    let drawChecker = 0;
+    for (let col = 0; col < board[0].length; col++) {
+        if (board[0][col] !== 0) {
+            drawChecker++;
+        }
+        if (drawChecker === 7) {
+            return msgDeVitoria.innerText = 'Empatou!'
+        }
+    }
+}
+// Lucas
 // Criar uma função pra verificar a quantidade de elementos na coluna, quando todas estiverem completas, deu empate
 
 const resetGame = () => {
