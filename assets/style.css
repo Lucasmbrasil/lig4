@@ -6,15 +6,28 @@ body {
     background-color: #e5e4cc;
     font-family: 'Luckiest Guy', cursive;
 }
+header {
+    background-color: #798777;
+    height: 20px;
+    padding: 40px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+figure {
+    display: none;
+}
 h1, h2,#msgDeVitoria {
     text-align: center;
-    margin: 20px;
 }
 h1 {
     font-size: xx-large;
 }
+h2 {
+    margin: 1rem;
+}
 #msgDeVitoria {
     font-size: x-large;
+    margin: 20px;
 }
 #container {
     background-color: #889e81;
@@ -80,6 +93,29 @@ h1 {
 }
 
 
-@media (min-width: 800px) {
-    
+@media (min-width: 1024px) {
+    header {
+        height: 70px;
+        padding: 7px;
+    }
+    h1 {
+        display: none;
+    }
+    figure {
+        display: block;
+    }
+    img {
+        height: 70px;
+    }
+    #englobar {
+        display: flex;
+    }
+    #texto {
+        border: 5px solid;
+        border-radius: 10px;
+        border-color: #5E8D93;
+        width: 375px;
+        height: 300px;
+        margin: auto;
+    }
 }
