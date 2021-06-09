@@ -60,17 +60,13 @@ h2 {
     ESTILIZAÇÃO DOS DISCOS
 */
 .discos {
+    box-sizing: border-box;
     position: absolute;
     width : 50px;
     height: 50px;
     border-radius: 50%;
     background-color: grey;
-    animation: right 0.4s forwards;
 }
-@keyframes right {
-    from { top: 100px   }
-    to   { top: inherit }
-  }
 
 .red {
     background-color: red;
@@ -79,6 +75,9 @@ h2 {
     background-color: black;
 }
 
+    .winner {
+        border: 2px solid gold;
+    }
 /* 
     ESTILIZAÇÃO DE RESULTADO
 */
