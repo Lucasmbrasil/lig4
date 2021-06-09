@@ -1,123 +1,114 @@
-/* 
-    ESTILIZAÇÃO DO TABULEIRO
-    Kaio
-*/
 body {
-    background-color: #e5e4cc;
-    font-family: 'Luckiest Guy', cursive;
+  background-color: #e5e4cc;
+  font-family: "Luckiest Guy", cursive;
 }
 header {
-    background-color: #798777;
-    height: 20px;
-    padding: 40px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+  background-color: #798777;
+  height: 20px;
+  padding: 40px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 figure {
-    display: none;
+  display: none;
 }
-h1, h2,#msgDeVitoria {
-    text-align: center;
+h1,
+h2,
+#msgDeVitoria {
+  text-align: center;
 }
 h1 {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 h2 {
-    margin: 1rem;
+  margin: 1rem;
 }
 #msgDeVitoria {
-    font-size: x-large;
-    margin: 20px;
+  font-size: x-large;
+  margin: 20px;
 }
 #container {
-    background-color: #889e81;
-    height: 310px;
-    width: 375px;
-    margin: 30px auto;
-    border-radius: 10px;
+  background-color: #889e81;
+  height: 310px;
+  width: 375px;
+  margin: 30px auto;
+  border-radius: 10px;
 }
 .tabuleiro {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 .coluna {
-    /* background-color: black; */
-    display         : flex;
-    flex-flow       : column wrap;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .celula {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    background-color: #bac7a7;
-    }
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #bac7a7;
+}
 
-/* 
-    ESTILIZAÇÃO DOS DISCOS
-*/
 .discos {
-    box-sizing: border-box;
-    position: absolute;
-    width : 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: grey;
+  box-sizing: border-box;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: grey;
 }
 
 .red {
-    background-color: red;
+  background-color: red;
 }
 .black {
-    background-color: black;
+  background-color: black;
 }
 
-    .winner {
-        border: 2px solid gold;
-    }
-/* 
-    ESTILIZAÇÃO DE RESULTADO
-*/
+.winner {
+  border: 2px solid gold;
+}
+
 
 #resetBtn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    border-radius: 5px;
-    outline: none;
-    background-color: #a4d4ae;
-    font-size: 17px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #a4d4ae;
+  font-size: 17px;
 }
 
-
 @media (min-width: 1024px) {
-    header {
-        height: 70px;
-        padding: 7px;
-    }
-    h1 {
-        display: none;
-    }
-    figure {
-        display: block;
-    }
-    img {
-        height: 70px;
-    }
-    #englobar {
-        display: flex;
-        max-width: 1024px;
-        margin: 0 auto;
-    }
-    #texto {
-        border: 5px solid;
-        border-radius: 10px;
-        border-color: #5E8D93;
-        width: 375px;
-        height: 300px;
-        margin: auto;
-    }
+  header {
+    height: 70px;
+    padding: 7px;
+  }
+  h1 {
+    display: none;
+  }
+  figure {
+    display: block;
+  }
+  img {
+    height: 70px;
+  }
+  #englobar {
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  #texto {
+    border: 5px solid;
+    border-radius: 10px;
+    border-color: #5e8d93;
+    width: 375px;
+    height: 300px;
+    margin: auto;
+  }
 }

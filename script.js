@@ -1,6 +1,4 @@
-// Criar o tabuleiro 7x6 com array 2d
-// Kaio
-// Criar o tabuleiro html
+
 let board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -9,10 +7,8 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
 ]
-//colocando o tabuleiro no html
 
 let tabuleiro = document.getElementById("tabuleiro")
-tabuleiro.classList.add("tabuleiro")
 
 const table = () => {
     for (let col = 0; col < board[0].length; col++) {
@@ -25,8 +21,6 @@ const table = () => {
             celula.dataset.columnNumber = col
             celula.dataset.rowNumber = row
             celula.dataset.coord = `${col}${row}`
-            /* console.log("row:", row)
-            console.log("column:" ,col) */
             coluna.appendChild(celula)
         }
         tabuleiro.appendChild(coluna)
@@ -34,14 +28,7 @@ const table = () => {
 }
 table()
 
-// Kaio
-
-//Osmar
-// Criar 1 variável pra guardar o jogador da vez
-let jogadorAtual = "black"; //black ou red
-// Criar a função pra posicionar o disco 
-// receber o jogadorAtual e no final da função fazer a mudança do jogadorAtual e já chama a função de verificação
-// Criar um handler de clique para cada coluna 
+let jogadorAtual = "black"; 
 
 const posicionarDisco = (event) => {
     const cell = event.target;
@@ -49,12 +36,10 @@ const posicionarDisco = (event) => {
     if (typeof col === 'undefined')
         col = cell.parentElement.dataset["columnNumber"];
     let flag = false;
-    //criar disco
     let disc = document.createElement("div");
     disc.classList.add("discos");
     disc.classList.add(jogadorAtual);
 
-    //   jogadas++;
     for (let i = board.length - 1; i >= 0; i--) {
         if (board[i][col] === 0) {
             document.querySelector(`[data-coord="${col}${i}"]`).appendChild(disc);
@@ -105,7 +90,6 @@ const addListener = (player) => {
         colunas[i].addEventListener('click', posicionarDisco);
     }
 }
-addListener();
 
 const removeListener = (player) => {
     const colunas = document.getElementsByClassName("coluna");
@@ -225,7 +209,7 @@ const verificaVitoria = (board) => {
     }
     return false;
 }
-// Eduardo
+
 // Criar a função de verificação de empate
 const verificarEmpate = (board) => {
     let drawChecker = 0;
@@ -238,8 +222,7 @@ const verificarEmpate = (board) => {
         }
     }
 }
-// Lucas
-// Criar uma função pra verificar a quantidade de elementos na coluna, quando todas estiverem completas, deu empate
+
 
 const resetGame = () => {
 
