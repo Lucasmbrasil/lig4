@@ -109,6 +109,8 @@ h2 {
     }
     #englobar {
         display: flex;
+        max-width: 1024px;
+        margin: 0 auto;
     }
     #texto {
         border: 5px solid;
