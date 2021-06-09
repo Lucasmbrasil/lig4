@@ -34,7 +34,7 @@ h2 {
   margin: 30px auto;
   border-radius: 10px;
 }
-.tabuleiro {
+#tabuleiro {
   display: flex;
   flex-direction: row;
   justify-content: center;
