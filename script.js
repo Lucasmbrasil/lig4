@@ -51,7 +51,7 @@ const posicionarDisco = (event) => {
             
             elem.animate([
                 // keyframes
-                { top: posInicial+"px"},
+                { top: posInicial-50+"px"},
                 { top: posDestino+"px"}
             ], {
                 // timing options
@@ -242,7 +242,6 @@ const resetGame = () => {
         }
     }
     
-
 }
 const resetButton = document.querySelector('#resetBtn');
 resetButton.addEventListener('click', resetGame);
