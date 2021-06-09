@@ -44,6 +44,7 @@ let jogadorAtual = "black"; //black ou red
 // Criar um handler de clique para cada coluna 
 
 const posicionarDisco = (event) => {
+    console.log(event);
     const cell = event.target;
     let col = cell.dataset["columnNumber"];
     if (typeof col === 'undefined')
@@ -54,10 +55,23 @@ const posicionarDisco = (event) => {
     disc.classList.add("discos");
     disc.classList.add(jogadorAtual);
 
-    //   jogadas++;
     for (let i = board.length - 1; i >= 0; i--) {
         if (board[i][col] === 0) {
             document.querySelector(`[data-coord="${col}${i}"]`).appendChild(disc);
+            let elem = document.querySelector(`[data-coord="${col}${i}"]`).firstChild;
+            
+            let posDestino = elem.offsetTop;
+            let firstElem = document.querySelector(`[data-coord="${col}0"]`);
+            let posInicial = firstElem.offsetTop;
+            elem.animate([
+                // keyframes
+                { top: posInicial+"px"},
+                { top: posDestino+"px"}
+            ], {
+                // timing options
+                duration: 500,
+                iterations: 1
+            });
             if (jogadorAtual === "black") {
                 board[i][col] = 1;
             } else {
@@ -69,17 +83,19 @@ const posicionarDisco = (event) => {
     }
     if (verificaVitoria(board) || verificarEmpate(board))
         removeListener();
-    if (flag === true){
+    if (flag === true) {
         jogadorAtual = trocaJogador(jogadorAtual);
         flag = false;
     }
 }
 
 const trocaJogador = (player) => {
-    if (player === "black"){
-        return "red"}
-        if (player === "red"){
-            return "black"}
+    if (player === "black") {
+        return "red"
+    }
+    if (player === "red") {
+        return "black"
+    }
 }
 
 // adicionando evento ao tabuleiro
