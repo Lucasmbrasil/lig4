@@ -47,6 +47,7 @@ h1 {
     ESTILIZAÇÃO DOS DISCOS
 */
 .discos {
+    box-sizing: border-box;
     position: absolute;
     width : 50px;
     height: 50px;
@@ -66,6 +67,9 @@ h1 {
     background-color: black;
 }
 
+    .winner {
+        border: 2px solid gold;
+    }
 /* 
     ESTILIZAÇÃO DE RESULTADO
 */

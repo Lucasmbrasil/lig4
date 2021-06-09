@@ -115,13 +115,16 @@ const verificaVitoria = (board) => {
 
             if (cell !== 0) {
                 let horizontalChecker = 0;
+                let winnerCoords = [`${col}${row}`];
 
                 for (let count = 1; count < 4; count++) {
                     if (cell === board[row][col + count]) {
+                        winnerCoords.push(`${col + count}${row}`)
                         horizontalChecker++;
                     }
                     if (horizontalChecker === 3) {
-                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência horizontal na linha ${row}!`
+                        highlightWinner(winnerCoords);
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência horizontal na linha ${row + 1}!`
                         return true;
                     }
                 }
@@ -137,13 +140,16 @@ const verificaVitoria = (board) => {
 
             if (cell !== 0) {
                 let verticalChecker = 0;
+                let winnerCoords = [`${col}${row}`];
 
                 for (let count = 1; count < 4; count++) {
                     if (cell === board[row + count][col]) {
+                        winnerCoords.push(`${col}${row + count}`)
                         verticalChecker++;
                     }
                     if (verticalChecker === 3) {
-                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência vertical na coluna ${col}`
+                        highlightWinner(winnerCoords);
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência vertical na coluna ${col + 1}`
                         return true;
 
                     }
@@ -160,13 +166,16 @@ const verificaVitoria = (board) => {
 
             if (cell !== 0) {
                 let diagonalChecker = 0;
+                let winnerCoords = [`${col}${row}`]
 
                 for (let count = 1; count < 4; count++) {
                     if (cell === board[row + count][col + count]) {
+                        winnerCoords.push(`${col + count}${row + count}`)
                         diagonalChecker++;
                     }
                     if (diagonalChecker === 3) {
-                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal na coluna ${col}`
+                        highlightWinner(winnerCoords);
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal (direita-abaixo) da coluna ${col + 1} até a coluna ${col + 1 + count}`
                         return true;
                     }
                 }
@@ -176,18 +185,21 @@ const verificaVitoria = (board) => {
     // checagem diagonal (esquerda-abaixo)
     for (let row = 0; row < limiteY; row++) {
 
-        for (let col = limiteX; col < board[0].length; col++) {
+        for (let col = 3; col < board[0].length; col++) {
             cell = board[row][col];
 
             if (cell !== 0) {
                 let diagonalChecker = 0;
+                let winnerCoords = [`${col}${row}`]
 
                 for (let count = 1; count < 4; count++) {
                     if (cell === board[row + count][col - count]) {
+                        winnerCoords.push(`${col - count}${row + count}`)
                         diagonalChecker++;
                     }
                     if (diagonalChecker === 3) {
-                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal na coluna ${col}`
+                        highlightWinner(winnerCoords);
+                        msgDeVitoria.innerText = `O jogador ${cell} vence o jogo com uma sequência diagonal (esquerda-abaixo) da coluna ${col + 1} até a coluna ${col + 1 - count}`
                         return true;
 
                     }
@@ -223,12 +235,23 @@ const resetGame = () => {
 
             let currentCell = document.querySelector(`[data-coord="${col}${row}"]`);
             currentCell.innerHTML = '';
+            currentCell.classList.remove('winner');
 
             board[row][col] = 0;
 
         }
     }
+    
 
 }
 const resetButton = document.querySelector('#resetBtn');
 resetButton.addEventListener('click', resetGame);
+
+const highlightWinner = (winnerCoordsArray) => {
+
+    for (let i = 0; i < 4; i++) {
+        let currentElement = document.querySelector(`[data-coord="${winnerCoordsArray[i]}"]`);
+        currentElement.firstChild.classList.add('winner');
+    }
+
+}
