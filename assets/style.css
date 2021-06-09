@@ -53,12 +53,7 @@ h1 {
     height: 50px;
     border-radius: 50%;
     background-color: grey;
-    animation: right 0.4s forwards;
 }
-@keyframes right {
-    from { top: 100px   }
-    to   { top: inherit }
-  }
 
 .red {
     background-color: red;

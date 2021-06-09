@@ -58,6 +58,22 @@ const posicionarDisco = (event) => {
     for (let i = board.length - 1; i >= 0; i--) {
         if (board[i][col] === 0) {
             document.querySelector(`[data-coord="${col}${i}"]`).appendChild(disc);
+            let elem = document.querySelector(`[data-coord="${col}${i}"]`).firstChild;
+            
+            let posDestino = elem.offsetTop;
+            let firstElem = document.querySelector(`[data-coord="${col}0"]`);
+            let posInicial = firstElem.offsetTop;
+            
+            elem.animate([
+                // keyframes
+                { top: posInicial+"px"},
+                { top: posDestino+"px"}
+            ], {
+                // timing options
+                duration: 500,
+                iterations: 1
+            });
+
             if (jogadorAtual === "black") {
                 board[i][col] = 1;
             } else {
