@@ -90,6 +90,7 @@ const addListener = (player) => {
         colunas[i].addEventListener('click', posicionarDisco);
     }
 }
+addListener();
 
 const removeListener = (player) => {
     const colunas = document.getElementsByClassName("coluna");
