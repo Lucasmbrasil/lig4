@@ -47,11 +47,11 @@ const posicionarDisco = (event) => {
             
             let posDestino = elem.offsetTop;
             let firstElem = document.querySelector(`[data-coord="${col}0"]`);
-            let posInicial = firstElem.offsetTop;
+            let posInicial = firstElem.offsetTop - firstElem.offsetHeight;
             
             elem.animate([
                 // keyframes
-                { top: posInicial-50+"px"},
+                { top: posInicial+"px"},
                 { top: posDestino+"px"}
             ], {
                 // timing options
@@ -241,7 +241,7 @@ const resetGame = () => {
 
         }
     }
-    
+    msgDeVitoria.innerText = '';
 }
 const resetButton = document.querySelector('#resetBtn');
 resetButton.addEventListener('click', resetGame);
